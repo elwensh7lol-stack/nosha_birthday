@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#160b16">
+<title>هنونتي ♥ عيد ميلادك الـ20</title>
+<style>
+:root{
+  --bg:#120a12;--bg2:#1d0e18;--paper:#fff8f2;--ink:#3d2130;
+  --rose:#eaa2b9;--rose2:#f5c8d4;--wine:#7f2f50;--gold:#e8c48f;
+  --muted:#cfb8c4;--white:#fff;--shadow:0 24px 80px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+ radial-gradient(circle at 10% 10%,rgba(234,162,185,.13),transparent 28%),
+ radial-gradient(circle at 90% 35%,rgba(127,47,80,.18),transparent 30%),
+ linear-gradient(180deg,var(--bg),#0f0810 55%,#160914);
+ color:var(--white);font-family:Tahoma,Arial,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:28px 28px}
+a{color:inherit}
+button{font:inherit}
+.start-screen{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:22px;background:
+ radial-gradient(circle at 50% 30%,rgba(234,162,185,.2),transparent 36%),
+ linear-gradient(180deg,#120a12,#090508)}
+.start-screen.hide{animation:fadeOut .8s forwards;pointer-events:none}
+@keyframes fadeOut{to{opacity:0;visibility:hidden}}
+.start-card{width:min(620px,100%);text-align:center;padding:42px 24px;border:1px solid rgba(255,255,255,.12);border-radius:32px;background:rgba(255,255,255,.05);backdrop-filter:blur(18px);box-shadow:var(--shadow)}
+.start-card .tiny{color:var(--muted);font-size:14px;letter-spacing:.06em}
+.start-card h1{font-size:clamp(42px,11vw,82px);margin:10px 0 4px;font-weight:700}
+.start-card p{color:#f3dce5;line-height:2;margin:10px auto 24px;max-width:440px}
+.open-btn{border:0;border-radius:999px;padding:15px 27px;background:linear-gradient(135deg,#f2b8c9,#d887a3);color:#381322;font-weight:700;box-shadow:0 12px 36px rgba(234,162,185,.25);cursor:pointer}
+.hero{min-height:100svh;display:grid;place-items:center;padding:92px 18px 62px;position:relative;text-align:center}
+.hero-inner{width:min(900px,100%)}
+.kicker{display:inline-flex;gap:9px;align-items:center;padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#f5dfe6;font-size:13px}
+.hero h1{font-size:clamp(48px,14vw,110px);margin:18px 0 4px;line-height:.95}
+.hero .from{font-size:16px;color:var(--muted);margin:8px 0 26px}
+.hero-copy{font-size:clamp(18px,3.8vw,25px);line-height:2.1;max-width:720px;margin:0 auto;color:#f9e9ef}
+.heart-beat{display:inline-block;animation:beat 1.5s infinite}
+@keyframes beat{0%,100%{transform:scale(1)}30%{transform:scale(1.18)}}
+.scroll-note{margin-top:38px;color:#bfa9b4;font-size:13px}
+.section{padding:74px 18px}
+.wrap{width:min(1040px,100%);margin:auto}
+.section-title{text-align:center;margin:0 auto 34px}
+.section-title .eyebrow{color:var(--rose);font-size:13px}
+.section-title h2{font-size:clamp(30px,7vw,58px);margin:8px 0}
+.section-title p{color:var(--muted);line-height:1.9;max-width:650px;margin:auto}
+.countdown-grid,.since-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:820px;margin:28px auto 0}
+.time-box{padding:20px 8px;border-radius:22px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);text-align:center;box-shadow:0 10px 35px rgba(0,0,0,.16)}
+.time-box strong{font-size:clamp(29px,7vw,56px);display:block}
+.time-box span{font-size:12px;color:var(--muted)}
+.date-strip{max-width:760px;margin:20px auto 0;padding:15px 18px;border-radius:18px;background:linear-gradient(90deg,rgba(127,47,80,.28),rgba(234,162,185,.08));color:#f3dce5;text-align:center;border:1px solid rgba(234,162,185,.14)}
+.story-split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.story-card{min-height:260px;padding:28px;border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.1)}
+.story-card .big-date{font-size:clamp(28px,6vw,52px);font-weight:700;color:var(--rose2)}
+.story-card p{line-height:2.05;color:#ead7df}
+.gallery{display:grid;gap:18px}
+.year-card{padding:18px;border-radius:28px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09)}
+.year-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.year-no{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;font-weight:700;font-size:22px;background:linear-gradient(135deg,var(--rose2),#ca7897);color:#46182a;flex:0 0 auto}
+.year-head h3{margin:0 0 4px;font-size:18px}
+.year-head p{margin:0;color:var(--muted);font-size:12px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.photo{position:relative;border:0;padding:0;border-radius:22px;overflow:hidden;background:#21121c;aspect-ratio:4/5;cursor:pointer;box-shadow:0 12px 28px rgba(0,0,0,.25)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s ease,filter .55s ease}
+.photo:hover img{transform:scale(1.035);filter:saturate(1.06)}
+.letter-shell{background:linear-gradient(180deg,rgba(234,162,185,.08),rgba(255,255,255,.02));border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07)}
+.letter{display:grid;gap:18px;max-width:820px;margin:auto}
+.letter-page{position:relative;background:var(--paper);color:var(--ink);padding:clamp(26px,6vw,48px);border-radius:24px;box-shadow:var(--shadow);transform:rotate(-.2deg)}
+.letter-page:nth-child(even){transform:rotate(.25deg)}
+.letter-page::before{content:"♥";position:absolute;left:22px;top:16px;color:#c57a94;opacity:.35;font-size:24px}
+.letter-page p{font-size:clamp(17px,3.8vw,21px);line-height:2.25;margin:0;white-space:normal}
+.wishes{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.wish{display:flex;gap:12px;align-items:flex-start;padding:18px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+.wish span{font-weight:700;color:var(--rose);font-size:19px}
+.wish p{margin:0;color:#eadbe1;line-height:1.8}
+.final{padding:96px 18px 110px;text-align:center}
+.final-card{max-width:850px;margin:auto;padding:38px 22px;border-radius:32px;background:
+ radial-gradient(circle at 50% 0,rgba(234,162,185,.18),transparent 42%),
+ rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1)}
+.final-card h2{font-size:clamp(32px,8vw,62px);margin:0 0 16px}
+.final-card p{line-height:2.2;color:#f3dde5;font-size:18px}
+.signature{margin-top:26px;font-size:clamp(22px,5vw,34px);font-weight:700;color:#ffdce8}
+.music{position:fixed;z-index:60;bottom:16px;left:16px;display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:999px;background:rgba(20,10,18,.78);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.music button{width:42px;height:42px;border-radius:50%;border:0;background:#f1b5c7;color:#3b1523;cursor:pointer;font-size:17px}
+.music .track{width:115px;direction:ltr}
+.music small{display:block;color:#d7bdc7;max-width:120px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lightbox{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.91);display:none;place-items:center;padding:18px}
+.lightbox.show{display:grid}
+.lightbox img{max-width:min(980px,96vw);max-height:90vh;border-radius:20px;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.lightbox button{position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.1);color:white;font-size:24px;cursor:pointer}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+.float-heart{position:fixed;z-index:5;pointer-events:none;bottom:-30px;color:#f2a9c1;opacity:.55;animation:rise linear forwards}
+@keyframes rise{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+.burst{position:fixed;z-index:120;pointer-events:none;font-size:20px;animation:burst 1.25s ease-out forwards}
+@keyframes burst{to{transform:translate(var(--x),var(--y)) rotate(240deg) scale(.2);opacity:0}}
+.note{font-size:12px;color:#bca9b2;text-align:center;margin-top:15px}
+@media(max-width:700px){
+ .section{padding:58px 14px}
+ .countdown-grid,.since-grid{grid-template-columns:repeat(2,1fr)}
+ .story-split{grid-template-columns:1fr}
+ .wishes{grid-template-columns:1fr}
+ .pair{gap:8px}
+ .year-card{padding:12px;border-radius:22px}
+ .photo{border-radius:16px}
+ .music{left:10px;bottom:10px}
+ .music small,.music .track{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+ *{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+</style>
+</head>
+<body>
+<div class="start-screen" id="startScreen">
+  <div class="start-card">
+    <div class="tiny">حاجة صغيرة من محمود ليكي</div>
+    <h1>هنونتي <span class="heart-beat">♥</span></h1>
+    <p>مش عايزك تدخلي الموقع بسرعة<br>دوسي وافتحيه على مهلك واسمعي الأغنية وانتي بتنزلي</p>
+    <button class="open-btn" id="openBtn">افتحي رسالتك يا نوشا ♥</button>
+  </div>
+</div>
+
+<audio id="song" preload="metadata" src="assets/audio/birthday_song.mp3"></audio>
+
+<div class="music" id="musicBar">
+  <button id="musicBtn" aria-label="تشغيل أو إيقاف الأغنية">▶</button>
+  <input id="progress" class="track" type="range" min="0" max="100" value="0" aria-label="تقدم الأغنية">
+  <small>كل سنة ♥</small>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="kicker">4 / 6 / 2027 · عيد ميلادك الـ20</div>
+    <h1>هنونتي ♥</h1>
+    <div class="from">من محمود</div>
+    <p class="hero-copy">
+      لسه اليوم مجاش<br>
+      بس انا مقدرتش أستنى<br>
+      لأن في ناس يوم ميلادها مش يوم عادي<br>
+      وانتي بالنسبالي بقيتي من الناس دي
+    </p>
+    <div class="scroll-note">انزلي واحدة واحدة… كل حاجة هنا معمولة ليكي</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-title reveal">
+      <div class="eyebrow">مستني اليوم ده من دلوقتي</div>
+      <h2>فاضل على الـ20</h2>
+      <p>كل ثانية بتعدي بتقربنا من 4 يونيو 2027</p>
+    </div>
+    <div class="countdown-grid reveal">
+      <div class="time-box"><strong id="cdDays">0</strong><span>يوم</span></div>
+      <div class="time-box"><strong id="cdHours">0</strong><span>ساعة</span></div>
+      <div class="time-box"><strong id="cdMinutes">0</strong><span>دقيقة</span></div>
+      <div class="time-box"><strong id="cdSeconds">0</strong><span>ثانية</span></div>
+    </div>
+    <div class="date-strip reveal" id="birthdayLine">لحد ما ييجي اليوم اللي هقولك فيه كل سنة وانتي هنونتي ♥</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-title reveal">
+      <div class="eyebrow">وهنا بدأت حكايتي أنا</div>
+      <h2>5 / 9 / 2026</h2>
+      <p>مش تاريخ كبير بالنسبة للدنيا… بس بالنسبة لمحمود هو اليوم اللي عرف فيه نوشا</p>
+    </div>
+    <div class="since-grid reveal">
+      <div class="time-box"><strong id="sinceDays">0</strong><span>يوم</span></div>
+      <div class="time-box"><strong id="sinceHours">0</strong><span>ساعة</span></div>
+      <div class="time-box"><strong id="sinceMinutes">0</strong><span>دقيقة</span></div>
+      <div class="time-box"><strong id="sinceSeconds">0</strong><span>ثانية</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="story-split">
+      <div class="story-card reveal">
+        <div class="big-date">5 سبتمبر 2026</div>
+        <p>
+          اليوم اللي دخلتي فيه حياتي من غير مقدمات<br>
+          ومن يومها اسمك مبقاش اسم عادي عندي<br>
+          بقيت لما أشوفه أبتسم من غير ما آخد بالي
+        </p>
+      </div>
+      <div class="story-card reveal">
+        <div class="big-date">4 يونيو 2027</div>
+        <p>
+          اليوم اللي هتتمي فيه 20 سنة<br>
+          وانا حبيت قبل ما اليوم ييجي أسيبلك حاجة تقولك<br>
+          إن في حد مستني فرحتك من بدري أوي
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-title reveal">
+      <div class="eyebrow">20 سنة · 40 صورة</div>
+      <h2>رحلة هنونتي</h2>
+      <p>صورتين لكل سنة من العشرين… مش لأن كل صورة اتصورت في السن ده، لكن عشان كل سنة تاخد لقطة منك في الحكاية دي</p>
+    </div>
+    <div class="gallery">
+      
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">01</span>
+            <div>
+              <h3>السنة 1 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 1">
+              <img src="assets/images/photo_01.jpg" alt="صورة لهنونتي 1" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 2">
+              <img src="assets/images/photo_02.jpg" alt="صورة لهنونتي 2" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">02</span>
+            <div>
+              <h3>السنة 2 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 3">
+              <img src="assets/images/photo_03.jpg" alt="صورة لهنونتي 3" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 4">
+              <img src="assets/images/photo_04.jpg" alt="صورة لهنونتي 4" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">03</span>
+            <div>
+              <h3>السنة 3 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 5">
+              <img src="assets/images/photo_05.jpg" alt="صورة لهنونتي 5" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 6">
+              <img src="assets/images/photo_06.jpg" alt="صورة لهنونتي 6" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">04</span>
+            <div>
+              <h3>السنة 4 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 7">
+              <img src="assets/images/photo_07.jpg" alt="صورة لهنونتي 7" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 8">
+              <img src="assets/images/photo_08.jpg" alt="صورة لهنونتي 8" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">05</span>
+            <div>
+              <h3>السنة 5 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 9">
+              <img src="assets/images/photo_09.jpg" alt="صورة لهنونتي 9" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 10">
+              <img src="assets/images/photo_10.jpg" alt="صورة لهنونتي 10" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">06</span>
+            <div>
+              <h3>السنة 6 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 11">
+              <img src="assets/images/photo_11.jpg" alt="صورة لهنونتي 11" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 12">
+              <img src="assets/images/photo_12.jpg" alt="صورة لهنونتي 12" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">07</span>
+            <div>
+              <h3>السنة 7 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 13">
+              <img src="assets/images/photo_13.jpg" alt="صورة لهنونتي 13" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 14">
+              <img src="assets/images/photo_14.jpg" alt="صورة لهنونتي 14" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">08</span>
+            <div>
+              <h3>السنة 8 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 15">
+              <img src="assets/images/photo_15.jpg" alt="صورة لهنونتي 15" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 16">
+              <img src="assets/images/photo_16.jpg" alt="صورة لهنونتي 16" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">09</span>
+            <div>
+              <h3>السنة 9 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 17">
+              <img src="assets/images/photo_17.jpg" alt="صورة لهنونتي 17" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 18">
+              <img src="assets/images/photo_18.jpg" alt="صورة لهنونتي 18" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">10</span>
+            <div>
+              <h3>السنة 10 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 19">
+              <img src="assets/images/photo_19.jpg" alt="صورة لهنونتي 19" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 20">
+              <img src="assets/images/photo_20.jpg" alt="صورة لهنونتي 20" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">11</span>
+            <div>
+              <h3>السنة 11 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 21">
+              <img src="assets/images/photo_21.jpg" alt="صورة لهنونتي 21" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 22">
+              <img src="assets/images/photo_22.jpg" alt="صورة لهنونتي 22" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">12</span>
+            <div>
+              <h3>السنة 12 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 23">
+              <img src="assets/images/photo_23.jpg" alt="صورة لهنونتي 23" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 24">
+              <img src="assets/images/photo_24.jpg" alt="صورة لهنونتي 24" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">13</span>
+            <div>
+              <h3>السنة 13 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 25">
+              <img src="assets/images/photo_25.jpg" alt="صورة لهنونتي 25" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 26">
+              <img src="assets/images/photo_26.jpg" alt="صورة لهنونتي 26" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">14</span>
+            <div>
+              <h3>السنة 14 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 27">
+              <img src="assets/images/photo_27.jpg" alt="صورة لهنونتي 27" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 28">
+              <img src="assets/images/photo_28.jpg" alt="صورة لهنونتي 28" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">15</span>
+            <div>
+              <h3>السنة 15 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 29">
+              <img src="assets/images/photo_29.jpg" alt="صورة لهنونتي 29" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 30">
+              <img src="assets/images/photo_30.jpg" alt="صورة لهنونتي 30" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">16</span>
+            <div>
+              <h3>السنة 16 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 31">
+              <img src="assets/images/photo_31.jpg" alt="صورة لهنونتي 31" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 32">
+              <img src="assets/images/photo_32.jpg" alt="صورة لهنونتي 32" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">17</span>
+            <div>
+              <h3>السنة 17 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 33">
+              <img src="assets/images/photo_33.jpg" alt="صورة لهنونتي 33" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 34">
+              <img src="assets/images/photo_34.jpg" alt="صورة لهنونتي 34" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">18</span>
+            <div>
+              <h3>السنة 18 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 35">
+              <img src="assets/images/photo_35.jpg" alt="صورة لهنونتي 35" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 36">
+              <img src="assets/images/photo_36.jpg" alt="صورة لهنونتي 36" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">19</span>
+            <div>
+              <h3>السنة 19 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 37">
+              <img src="assets/images/photo_37.jpg" alt="صورة لهنونتي 37" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 38">
+              <img src="assets/images/photo_38.jpg" alt="صورة لهنونتي 38" loading="lazy">
+            </button>
+          </div>
+        </article>
+
+        <article class="year-card reveal">
+          <div class="year-head">
+            <span class="year-no">20</span>
+            <div>
+              <h3>السنة 20 من 20</h3>
+              <p>صورتين من الصور اللي اختارها محمود ليكي ♥</p>
+            </div>
+          </div>
+          <div class="pair">
+            <button class="photo" aria-label="فتح الصورة 39">
+              <img src="assets/images/photo_39.jpg" alt="صورة لهنونتي 39" loading="lazy">
+            </button>
+            <button class="photo" aria-label="فتح الصورة 40">
+              <img src="assets/images/photo_40.jpg" alt="صورة لهنونتي 40" loading="lazy">
+            </button>
+          </div>
+        </article>
+    </div>
+  </div>
+</section>
+
+<section class="section letter-shell">
+  <div class="wrap">
+    <div class="section-title reveal">
+      <div class="eyebrow">الكلام اللي مش بعرف أقوله كله مرة واحدة</div>
+      <h2>رسالة محمود لنوشا</h2>
+      <p>اقريها على مهلك… دي مش رسالة عيد ميلاد وخلاص</p>
+    </div>
+    <div class="letter">
+      <section class="letter-page reveal"><p>هنونتي<br><br>يمكن لسه بدري على يوم ميلادك<br>بس انا من دلوقتي مقدرتش استنى لحد 4/6/2027 عشان أقولك كل سنة وانتي طيبة<br>انا كنت عايز أعملك حاجة تفضل موجودة<br>حاجة كل ما تفتحيها تحسي قد ايه انتي غالية عندي<br>وقد ايه وجودك من يوم ما عرفتك فرق معايا<br><br>انا عارف ان المدة من 5/9/2026 لحد دلوقتي مش سنين<br>بس اللي اتعلمته معاكي ان في حاجات مش بتتحسب بالوقت<br>ممكن حد يقعد في حياتك سنين ويفضل عادي<br>وممكن حد يدخل حياتك في وقت صغير ويعمل جواك مكان كبير اوي<br>وانتي عملتي كده من غير ما تحاولي</p></section>
+<section class="letter-page reveal"><p>من يوم ما عرفتك<br><br>بدأت آخد بالي ان اسمك بقى له إحساس لوحده عندي<br>لما أشوفه بفرح<br>لما تغيبِي بحس إن في حاجة ناقصة<br>ولما نتكلم حتى لو كلام عادي اليوم عندي بيبقى أخف<br><br>انا مش بعرف أرتب كل اللي جوايا كل مرة<br>وساعات بهزر أو برخم بدل ما أقول اللي حاسه صح<br>بس الحقيقة البسيطة إن وجودك بقى فارق معايا<br>وأنا مبسوط إن يوم 5/9/2026 حصل<br>عشان اليوم ده هو اللي خلاني أعرف هنونتي</p></section>
+<section class="letter-page reveal"><p>انا مش عايز أبقى في حياتك عشان أقولك كلام حلو وبس<br><br>نفسي أبقى الشخص اللي وجوده يريحك<br>اللي متحسيش معاه إنك لازم تفضلي قوية طول الوقت<br>لو انتي مبسوطة أفرح معاكي<br>ولو زعلانة أفضل جنبك<br>ولو مش عايزة تتكلمي خالص أبقى فاهم إن ساعات السكوت لوحده بيكون كفاية<br><br>مش هقولك إني هبقى كامل<br>عشان انا مش كامل<br>وممكن أغلط وممكن أزعلك من غير ما أقصد<br>بس الحاجة اللي أقدر أوعدك بيها إني هحاول<br>هحاول أفهمك قبل ما أحكم<br>وهسمعك قبل ما أرد<br>وكل مرة يحصل بينا حاجة هفتكر إن اللي قدامي مش حد عادي<br>دي انتي</p></section>
+<section class="letter-page reveal"><p>وعيد ميلادك العشرين بالنسبالي مش رقم وخلاص<br><br>عشرين سنة من حياتك<br>أيام كتير أنا مكنتش فيها<br>ضحك وزعل وحاجات علمتك وحاجات غيرتك<br>وكلهم وصلوا لنوشا اللي عرفتها أنا<br><br>وعشان كده الـ 40 صورة هنا مش مجرد صور<br>انا قسمت الصور على عشرين سنة<br>صورتين لكل سنة<br>مش عشان أقول إن كل صورة اتصورت في السنة دي<br>لكن عشان كل فصل يبقى له ذكرى منك<br>وكل ما أنزل سنة ورا سنة افتكر إن كل اللي فات وصلك للحظة اللي دخلتي فيها حياتي</p></section>
+<section class="letter-page reveal"><p>يمكن أكتر حاجة نفسي توصلك من الموقع ده إنك متفكريش في التصميم نفسه<br><br>فكري في إن محمود قعد يختارلك كل تفصيلة<br>وقعد يكتبلك من قلبه قبل يوم ميلادك بوقت<br>عشان انتي مش مناسبة بتيجي يوم وتعدي<br>انتي حد أنا حبيت أعمله حاجة مخصوص<br>حاجة تبقى ليكي انتي<br><br>وعايزك لما تيجي تكملي 20 سنة تبقي عارفة إنك تستاهلي سنة أهدى<br>تستاهلي أيام أخف<br>تستاهلي ضحكة طالعة من قلبك<br>وتستاهلي كل حاجة نفسك فيها تقرب منك حبة حبة</p></section>
+<section class="letter-page reveal"><p>ولو في يوم كنتي زعلانة مني<br><br>أو حصل بينا اختلاف<br>أو حتى فتحتي الموقع ده في يوم أنا مش عارف أوصفلك فيه اللي جوايا<br>ارجعي للجزء ده<br><br>انا وقت ما كتبتلك الكلام ده مكنتش مستني منك حاجة<br>ولا كان في مناسبة بتجبرني أقول كلام حلو<br>كنت بس بفكر فيكي<br>ومبسوط إنك موجودة<br>ونفسي أسيبلك حاجة صغيرة تقولك إن في حد شايفك مهمة بجد<br><br>ممكن الأيام تتغير<br>وممكن إحنا نتغير<br>بس اللحظة اللي بكتبلك فيها دلوقتي حقيقية<br>والإحساس اللي خلاني أعمل كل ده حقيقي<br>وده عندي أهم من أي كلام كبير</p></section>
+<section class="letter-page reveal"><p>وفي عيد ميلادك<br><br>نفسي أول حاجة تعمليها إنك تبتسمي<br>مش عشاني<br>عشان نفسك<br><br>افتكري إنك وصلتي للعشرين<br>وإن قدامك حاجات كتير لسه متعاشتش<br>أماكن لسه مشوفتيهاش<br>ضحك لسه مجاش<br>نجاحات لسه مستنياكي<br>وأيام حلوة يمكن دلوقتي متعرفيش عنها أي حاجة<br><br>ويا رب أكون موجود في جزء حلو من الأيام دي<br>أشوفك وانتي مبسوطة<br>وأفرحلك<br>وأفضل كل سنة أقولك إن يوم ميلادك بقى يوم مهم عندي أنا كمان</p></section>
+<section class="letter-page reveal"><p>هنونتي<br><br>كل سنة وانتي أقرب للي نفسك فيه<br>كل سنة وانتي أهدى من جواكي<br>كل سنة وانتي محاطة بناس بتحبك بصدق<br>كل سنة وانتي بتضحكي أكتر وبتزعلي أقل<br>وكل سنة وانا عندي سبب جديد أحب وجودك عشانه<br><br>انا مش عايز أحفظلك جملة كبيرة<br>كل اللي عايز أقوله بسيط<br><br>انتي غالية عندي<br>وجودك فرق<br>ومبسوط إني عرفتك<br>ومهما الكلام طول هيفضل أقل من اللي نفسي أوصلهولك<br><br>كل سنة وانتي طيبة يا هنونتي<br>وكل سنة وانتي أجمل حاجة حصلت في حكايتي من يوم 5/9/2026<br><br>من قلب عاشق ل نوشا ل حب دايم🥹♥️</p></section>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-title reveal">
+      <div class="eyebrow">عشان العشرين ليهم حق</div>
+      <h2>20 أمنية ليكي</h2>
+      <p>كل واحدة منهم دعوة صغيرة من قلبي للسنة الجديدة</p>
+    </div>
+    <div class="wishes">
+      <div class="wish reveal"><span>01</span><p>يا رب السنة العشرين تكون أهدى على قلبك</p></div>
+<div class="wish reveal"><span>02</span><p>يا رب تضحكي من قلبك أكتر بكتير</p></div>
+<div class="wish reveal"><span>03</span><p>يا رب كل حاجة نفسك فيها تقرب منك</p></div>
+<div class="wish reveal"><span>04</span><p>يا رب متشوفيش في نفسك غير الحلو اللي أنا شايفه</p></div>
+<div class="wish reveal"><span>05</span><p>يا رب كل خوف جواكي يهدى</p></div>
+<div class="wish reveal"><span>06</span><p>يا رب تفضلي على طبيعتك دايمًا</p></div>
+<div class="wish reveal"><span>07</span><p>يا رب أيامك تبقى أخف وأحن</p></div>
+<div class="wish reveal"><span>08</span><p>يا رب نجاحك يبقى أكبر من اللي متخيلاه</p></div>
+<div class="wish reveal"><span>09</span><p>يا رب كل خطوة جاية تكون في مكان يليق بيكي</p></div>
+<div class="wish reveal"><span>10</span><p>يا رب تلاقي راحة في كل حاجة بتحبيها</p></div>
+<div class="wish reveal"><span>11</span><p>يا رب متحسيش إنك لوحدك في يوم</p></div>
+<div class="wish reveal"><span>12</span><p>يا رب كل ذكرى وحشة تتعوض بحاجة أحلى</p></div>
+<div class="wish reveal"><span>13</span><p>يا رب تفضلي سبب للضحكة الحلوة دي</p></div>
+<div class="wish reveal"><span>14</span><p>يا رب قلبك يطمن أكتر</p></div>
+<div class="wish reveal"><span>15</span><p>يا رب كل سنة تبصي وراكي وتفخري بنفسك</p></div>
+<div class="wish reveal"><span>16</span><p>يا رب أحلامك الصغيرة قبل الكبيرة تتحقق</p></div>
+<div class="wish reveal"><span>17</span><p>يا رب تتدلعي زي ما تستاهلي</p></div>
+<div class="wish reveal"><span>18</span><p>يا رب السنة دي تديكي أكتر ما تاخد منك</p></div>
+<div class="wish reveal"><span>19</span><p>يا رب أكون سبب حلو في أيامك</p></div>
+<div class="wish reveal"><span>20</span><p>ويا رب أفضل أقولك كل سنة وانتي هنونتي ♥</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="final-card reveal">
+    <h2>ولو نسيتي كل حاجة هنا… افتكري دي</h2>
+    <p>
+      انتي غالية عندي بجد<br>
+      ومبسوط إني عرفتك<br>
+      ومهما الكلام طول هيفضل أقل من الإحساس اللي خلاني أعملك كل ده<br><br>
+      كل سنة وانتي طيبة يا هنونتي<br>
+      وكل سنة وانتي أقرب لقلبي وأقرب لكل حاجة حلوة نفسك فيها
+    </p>
+    <div class="signature">من قلب عاشق ل نوشا ل حب دايم🥹♥️</div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button id="closeLightbox" aria-label="إغلاق">×</button>
+  <img id="lightboxImg" alt="الصورة المكبرة">
+</div>
+
+<script>
+const birthday = new Date('2027-06-04T00:00:00+03:00');
+const met = new Date('2026-09-05T00:00:00+03:00');
+
+function splitTime(ms){
+  const total = Math.max(0, Math.floor(ms/1000));
+  return {
+    days: Math.floor(total/86400),
+    hours: Math.floor((total%86400)/3600),
+    minutes: Math.floor((total%3600)/60),
+    seconds: total%60
+  };
+}
+const cdDays=document.getElementById('cdDays');
+const cdHours=document.getElementById('cdHours');
+const cdMinutes=document.getElementById('cdMinutes');
+const cdSeconds=document.getElementById('cdSeconds');
+const birthdayLine=document.getElementById('birthdayLine');
+const sinceDays=document.getElementById('sinceDays');
+const sinceHours=document.getElementById('sinceHours');
+const sinceMinutes=document.getElementById('sinceMinutes');
+const sinceSeconds=document.getElementById('sinceSeconds');
+
+function updateClocks(){
+  const now = new Date();
+  const left = splitTime(birthday-now);
+  cdDays.textContent=left.days; cdHours.textContent=left.hours; cdMinutes.textContent=left.minutes; cdSeconds.textContent=left.seconds;
+  if(now>=birthday) birthdayLine.textContent='النهارده يومك ♥ كل سنة وانتي طيبة يا هنونتي';
+  const passed = splitTime(now-met);
+  sinceDays.textContent=passed.days; sinceHours.textContent=passed.hours; sinceMinutes.textContent=passed.minutes; sinceSeconds.textContent=passed.seconds;
+}
+updateClocks(); setInterval(updateClocks,1000);
+
+const song=document.getElementById('song');
+const musicBtn=document.getElementById('musicBtn');
+const progress=document.getElementById('progress');
+const startScreen=document.getElementById('startScreen');
+document.getElementById('openBtn').addEventListener('click', async ()=>{
+  startScreen.classList.add('hide');
+  try{ await song.play(); musicBtn.textContent='❚❚'; }catch(e){}
+  burstHearts(innerWidth/2,innerHeight/2,26);
+});
+musicBtn.addEventListener('click',async()=>{
+  if(song.paused){try{await song.play();musicBtn.textContent='❚❚';}catch(e){}}
+  else{song.pause();musicBtn.textContent='▶'}
+});
+song.addEventListener('timeupdate',()=>{
+  if(song.duration) progress.value=(song.currentTime/song.duration)*100;
+});
+song.addEventListener('ended',()=>{musicBtn.textContent='▶';progress.value=0});
+progress.addEventListener('input',()=>{
+  if(song.duration) song.currentTime=(progress.value/100)*song.duration;
+});
+
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach((entry,i)=>{
+    if(entry.isIntersecting){
+      entry.target.style.transitionDelay=Math.min(i*55,220)+'ms';
+      entry.target.classList.add('in');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.11});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+const lightbox=document.getElementById('lightbox');
+const lbImg=document.getElementById('lightboxImg');
+document.querySelectorAll('.photo').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    lbImg.src=btn.querySelector('img').src;
+    lightbox.classList.add('show');
+    lightbox.setAttribute('aria-hidden','false');
+  });
+});
+function closeLB(){lightbox.classList.remove('show');lightbox.setAttribute('aria-hidden','true');}
+document.getElementById('closeLightbox').onclick=closeLB;
+lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLB()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
+
+function burstHearts(x,y,count=14){
+  for(let i=0;i<count;i++){
+    const el=document.createElement('div');
+    el.className='burst'; el.textContent=Math.random()>.35?'♥':'✦';
+    el.style.left=x+'px';el.style.top=y+'px';
+    const ang=Math.random()*Math.PI*2,dist=70+Math.random()*150;
+    el.style.setProperty('--x',Math.cos(ang)*dist+'px');
+    el.style.setProperty('--y',Math.sin(ang)*dist+'px');
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),1400);
+  }
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('button,.photo,.music')) burstHearts(e.clientX,e.clientY,7);
+});
+
+setInterval(()=>{
+  if(document.hidden) return;
+  const h=document.createElement('div');
+  h.className='float-heart';h.textContent='♥';
+  h.style.left=(Math.random()*100)+'vw';
+  h.style.fontSize=(12+Math.random()*18)+'px';
+  h.style.animationDuration=(7+Math.random()*5)+'s';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),12500);
+},1700);
+</script>
+</body>
+</html>
